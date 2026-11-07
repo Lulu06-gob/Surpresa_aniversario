@@ -1,0 +1,420 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+.birthday-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+}
+
+/* =========================
+   LADO DO CARTÃO
+========================= */
+
+.card-side {
+    width: 50%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: #dce9f8;
+}
+
+.birthday-card {
+    width: 100%;
+    max-width: 600px;
+    min-height: 700px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 45px 55px;
+
+    text-align: center;
+
+    background: #fffaf2;
+    border: 8px solid #c5d8ef;
+
+    box-shadow:
+        0 15px 35px rgba(35, 65, 110, 0.18),
+        inset 0 0 0 2px #f1dfc7;
+}
+
+.birthday-card h1 {
+    color: #294572;
+    font-size: clamp(2rem, 3vw, 3.3rem);
+    line-height: 1.2;
+}
+
+.card-decoration {
+    color: #4779d9;
+    font-size: 2.3rem;
+    letter-spacing: 12px;
+}
+
+.top-decoration {
+    margin-bottom: 10px;
+}
+
+.bottom-decoration {
+    margin-top: 25px;
+}
+
+.personal-message {
+    max-width: 430px;
+
+    color: #294572;
+    font-size: 1.35rem;
+    line-height: 1.8;
+}
+
+.personal-message p + p {
+    margin-top: 35px;
+}
+
+.signature {
+    color: #4779d9;
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+/* =========================
+   LADO DO BOLO
+========================= */
+
+.cake-side {
+    width: 50%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background:
+        radial-gradient(circle at 50% 25%, #263a78, transparent 35%),
+        linear-gradient(135deg, #111e4c, #1b2d63);
+
+    position: relative;
+}
+
+.cake-side h2 {
+    margin-bottom: 100px;
+
+    color: #dce9ff;
+    font-family: Arial, sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+    text-align: center;
+}
+
+/* =========================
+   BOLO
+========================= */
+
+.cake {
+    width: 360px;
+    height: 260px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Parte superior oval do bolo */
+.cake-top {
+    width: 360px;
+    height: 75px;
+
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 3;
+
+    background: #f2bfd5;
+
+    border: 3px solid #d996b8;
+    border-radius: 50%;
+}
+
+/* Corpo principal do bolo */
+.cake-body {
+    width: 360px;
+    height: 125px;
+
+    position: absolute;
+    top: 105px;
+    left: 0;
+    z-index: 2;
+
+    background: #c889ad;
+
+    border-left: 3px solid #d996b8;
+    border-right: 3px solid #d996b8;
+}
+
+/* Base/parte inferior decorativa */
+.cake-bottom {
+    width: 360px;
+    height: 35px;
+
+    position: absolute;
+    top: 195px;
+    left: 0;
+    z-index: 4;
+
+    background: #f2bfd5;
+
+    border: 3px solid #d996b8;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Pequeno detalhe de cobertura */
+.cake-body::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 22px;
+
+    background: #dca4c1;
+}
+
+/* =========================
+   VELAS
+========================= */
+
+.candles {
+    width: 250px;
+
+    position: absolute;
+    top: 0;
+    left: 55px;
+    z-index: 5;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.candle {
+    width: 25px;
+    height: 75px;
+
+    position: relative;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #f6d56d 0,
+            #f6d56d 7px,
+            #e9ad43 7px,
+            #e9ad43 12px
+        );
+
+    border: 2px solid #d99b36;
+    border-radius: 5px 5px 2px 2px;
+}
+
+.candle::before {
+    content: "";
+
+    width: 5px;
+    height: 12px;
+
+    position: absolute;
+    top: -12px;
+    left: 8px;
+
+    background: #33251e;
+    border-radius: 50% 50% 0 0;
+}
+
+/* Chamas */
+.flame {
+    width: 22px;
+    height: 32px;
+
+    position: absolute;
+    top: -45px;
+    left: 0;
+
+    background: #ffd45c;
+
+    border-radius: 50% 50% 50% 50%;
+
+    box-shadow:
+        0 0 8px #ffd45c,
+        0 0 18px #ffb52e,
+        0 0 28px rgba(255, 181, 46, 0.8);
+
+    transform: rotate(8deg);
+
+    animation: flicker 0.7s infinite alternate;
+}
+
+.flame::after {
+    content: "";
+
+    width: 9px;
+    height: 17px;
+
+    position: absolute;
+    bottom: 4px;
+    left: 6px;
+
+    background: #fff4b0;
+    border-radius: 50%;
+}
+
+@keyframes flicker {
+    0% {
+        transform: translateY(0) rotate(8deg) scale(1);
+    }
+
+    50% {
+        transform: translateY(-3px) rotate(-5deg) scale(1.08);
+    }
+
+    100% {
+        transform: translateY(1px) rotate(6deg) scale(0.95);
+    }
+}
+
+/* =========================
+   BOTÃO
+========================= */
+
+#blow-candles-btn {
+    margin-top: 55px;
+
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #8bbcff;
+    color: #102347;
+
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 18px rgba(139, 188, 255, 0.4);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+#blow-candles-btn:hover {
+    background: #b8d6ff;
+    transform: scale(1.08);
+}
+
+#blow-candles-btn:disabled {
+    cursor: default;
+    opacity: 0.8;
+}
+
+/* =========================
+   APAGAR AS VELAS
+========================= */
+
+.cake-side.candles-blown .flame {
+    animation: none;
+    opacity: 0;
+    transform: scale(0);
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+}
+
+/* =========================
+   TRANSIÇÃO PARA A ÚLTIMA PÁGINA
+========================= */
+
+.page-fade-out {
+    animation: fadeToBlack 2.5s ease forwards;
+}
+
+@keyframes fadeToBlack {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        background: #000;
+    }
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+    .birthday-page {
+        flex-direction: column;
+    }
+
+    .card-side,
+    .cake-side {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .birthday-card {
+        min-height: 600px;
+    }
+
+    .cake-side h2 {
+        margin-bottom: 80px;
+    }
+}
+
+@media (max-width: 500px) {
+    .card-side,
+    .cake-side {
+        padding: 25px 15px;
+    }
+
+    .birthday-card {
+        padding: 35px 20px;
+    }
+
+    .cake {
+        transform: scale(0.8);
+        transform-origin: center;
+        margin-bottom: -35px;
+    }
+
+    .personal-message {
+        font-size: 1.1rem;
+    }
+}

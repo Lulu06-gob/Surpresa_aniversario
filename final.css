@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at top, #426db5, transparent 45%),
+        linear-gradient(135deg, #10234f, #1c3974, #10234f);
+    color: #263f6d;
+}
+
+
+.final-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    animation: pageAppear 1.8s ease;
+}
+
+.card-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.birthday-card {
+    width: 760px;
+    max-width: 95vw;
+    height: auto;
+    min-height: 470px;
+
+    position: relative;
+    display: flex;
+    align-items: stretch;
+
+    perspective: 1200px;
+
+    filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.25));
+
+    animation: cardAppear 1.5s ease;
+}
+
+
+.card-back {
+    position: absolute;
+    inset: 0;
+
+    background: #f4d9b8;
+    border-radius: 8px;
+
+    z-index: 0;
+}
+
+
+.card-inside {
+    width: 50%;
+    min-width: 0;
+    height: auto;
+
+    position: relative;
+    z-index: 2;
+
+    padding: 30px 26px;
+
+    background: #fffaf0;
+    text-align: center;
+
+    border: 2px solid #e8cba8;
+
+    /* Evita que palavras longas estourem os limites */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* Página esquerda */
+
+.left-page {
+    border-radius: 8px 0 0 8px;
+}
+
+/* Página direita */
+
+.right-page {
+    border-radius: 0 8px 8px 0;
+}
+
+/* Títulos */
+
+.card-inside h2 {
+    margin-bottom: 20px;
+
+    color: #294572;
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+/* Textos */
+
+.card-inside p {
+    margin-bottom: 16px;
+
+    color: #405b87;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    overflow-wrap: break-word;
+}
+
+/* Decorações */
+
+.card-decoration {
+    margin-bottom: 18px;
+
+    color: #5787dc;
+    font-size: 1.5rem;
+    letter-spacing: 6px;
+}
+
+/* Mensagem especial de aniversário */
+
+.final-birthday {
+    margin-top: 18px;
+
+    color: #294572 !important;
+    font-weight: bold;
+}
+
+/* Assinatura */
+
+.signature {
+    margin-top: 18px;
+
+    color: #5787dc !important;
+    font-style: italic;
+}
+
+
+.card-front {
+    width: 50%;
+    min-width: 0;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 5;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: linear-gradient(135deg, #d9e8fa, #a9c9ee);
+    border: 3px solid #91b5e4;
+    border-radius: 0 8px 8px 0;
+
+    text-align: center;
+
+    transform-origin: left center;
+
+    animation: openCard 2s ease forwards;
+    animation-delay: 0.8s;
+}
+
+
+.card-front h1 {
+    margin: 25px 0;
+
+    color: #294572;
+    font-size: 2.2rem;
+    line-height: 1.35;
+}
+
+
+.front-decoration {
+    font-size: 3rem;
+}
+
+
+#finalize-btn {
+    margin-top: 40px;
+    padding: 15px 42px;
+
+    border: none;
+    border-radius: 30px;
+
+    background: #9fc7ff;
+    color: #102347;
+
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 20px rgba(159, 199, 255, 0.35);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+#finalize-btn:hover {
+    background: #c5ddff;
+    transform: scale(1.08);
+}
+
+#finalize-btn:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+
+.close-message {
+    width: 100%;
+    max-width: 450px;
+
+    margin-top: 25px;
+
+    color: #dceaff;
+
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+
+@keyframes pageAppear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes openCard {
+    from {
+        transform: rotateY(-90deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .final-page {
+        justify-content: flex-start;
+        padding: 25px 12px;
+    }
+
+    .birthday-card {
+        width: 95vw;
+        max-width: 480px;
+        min-height: 0;
+        height: auto;
+
+        flex-direction: column;
+    }
+
+    .card-inside {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+
+        padding: 28px 22px;
+
+        border-radius: 8px;
+    }
+
+    .card-inside h2 {
+        font-size: 1.6rem;
+    }
+
+    .card-inside p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .card-front {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+
+        position: relative;
+        top: auto;
+        right: auto;
+
+        border-radius: 8px;
+
+        animation: none;
+    }
+
+    .card-back {
+        display: none;
+    }
+
+    .card-front h1 {
+        font-size: 1.8rem;
+    }
+
+    #finalize-btn {
+        margin-top: 28px;
+    }
+
+    .close-message {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .card-inside {
+        padding: 24px 17px;
+    }
+
+    .card-inside h2 {
+        font-size: 1.4rem;
+    }
+
+    .card-inside p {
+        font-size: 0.9rem;
+    }
+
+    .card-decoration {
+        font-size: 1.3rem;
+        letter-spacing: 4px;
+    }
+
+    #finalize-btn {
+        padding: 13px 30px;
+    }
+}

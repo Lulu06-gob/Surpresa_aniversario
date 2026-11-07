@@ -1,0 +1,165 @@
+/* Remove margens e facilita o controle dos tamanhos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configura o corpo da página */
+body {
+    background-color: #050505;
+    color: #d1d5db;
+    font-family: "Courier New", monospace;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* Janela principal do terminal */
+.terminal {
+    width: 100%;
+    max-width: 850px;
+    min-height: 480px;
+
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+
+    overflow: hidden;
+}
+
+/* Barra superior */
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+
+    padding: 14px 18px;
+}
+
+/* Bolinhas da janela */
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.red {
+    background-color: #ff5f56;
+}
+
+.yellow {
+    background-color: #ffbd2e;
+}
+
+.green {
+    background-color: #27c93f;
+}
+
+/* Título do terminal */
+.terminal-title {
+    margin-left: 10px;
+    color: #8b949e;
+    font-size: 13px;
+}
+
+/* Conteúdo */
+.terminal-content {
+    padding: 30px;
+    min-height: 420px;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* Linhas adicionadas pelo JavaScript */
+.terminal-line {
+    color: #c9d1d9;
+    white-space: pre-wrap;
+}
+
+/* Linhas de destaque */
+.terminal-line.highlight {
+    color: #7dd3fc;
+}
+
+/* Cursor piscando */
+.cursor {
+    display: inline-block;
+    width: 9px;
+    height: 18px;
+
+    background-color: #7dd3fc;
+
+    margin-left: 4px;
+    vertical-align: middle;
+
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Botão de continuar */
+#continue-container {
+    margin-top: 35px;
+    text-align: center;
+}
+
+#continue-button {
+    background-color: transparent;
+    color: #7dd3fc;
+
+    border: 1px solid #7dd3fc;
+    border-radius: 6px;
+
+    padding: 12px 24px;
+
+    font-family: "Courier New", monospace;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+#continue-button:hover {
+    background-color: #7dd3fc;
+    color: #0d1117;
+    box-shadow: 0 0 15px rgba(125, 211, 252, 0.4);
+}
+
+/* Classe para esconder o botão */
+.hidden {
+    display: none;
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 600px) {
+    .terminal-content {
+        padding: 20px;
+        font-size: 13px;
+    }
+
+    .terminal {
+        min-height: 420px;
+    }
+}
